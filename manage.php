@@ -10,6 +10,17 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 		<link rel="stylesheet" href="/static/css/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
+        <style>
+            #cssform {
+                position: relative;
+                margin-top: .5em;
+            }
+
+            .CodeMirror {
+                height: auto;
+                border: 1px solid #ddd;
+            }
+        </style>
 	</head>
 	<body>
 		<div class="container">
@@ -160,18 +171,36 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 				</fieldset>
 			</form><br>
 			
-			<form method="post" enctype="multipart/form-data">
+			<form method="post" enctype="multipart/form-data" id="cssform">
 				<fieldset>
 					<b>CSS</b><br>
 					<textarea required rows="15" cols="58" placeholder="Your CSS" id="css" name="css" id="css_code"><?php echo $user['css']?></textarea><br>
+                    <select id="langlist" selectedIndex=<?php echo $user['cssmode']?> name="lang" onchange="refreshmode(this)">
+                        <option value=0>CSS</option>
+                        <option value=1>LESS</option>
+                        <option value=2>SCSS</option>
+                    </select>
 					<input name="cssset" type="submit" value="Set">
 				</fieldset>
 			</form><br>
             <script>
-                CodeMirror.fromTextArea(document.getElementById('css'), {
-                    lineNumbers: true,
-                    mode: "css"
+                var editor = CodeMirror.fromTextArea(document.getElementById('css'), {
+                    lineNumbers: true
                 });
+
+                function refreshmode(elem) {
+                    switch(elem.options[elem.selectedIndex]) {
+                        case 0:
+                            editor.setOption("mode", "text/css");
+                            break;
+                        case 1:
+                            editor.setOption("mode", "text/x-less");
+                            break;
+                        case 2:
+                            editor.setOption("mode", "text/x-scss");
+                            break;
+                    }
+                }
             </script>
 			
 			
