@@ -8,7 +8,8 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 	<head>
 		<title><?php echo $config['project_name']; ?> - index</title>
 		<link rel="stylesheet" href="/static/css/main.css">
-        <script src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
 	</head>
 	<body>
 		<div class="container">
