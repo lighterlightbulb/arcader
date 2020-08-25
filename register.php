@@ -54,7 +54,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/register.php");
 					<input required placeholder="Password" type="password" name="password"> <small>(Must be longer than 8 characters & must include letters and numbers)</small><br>
 					<input required placeholder="Confirm Password" type="password" name="confirm"><br><br>
 					<input type="submit" value="Register" class="g-recaptcha" data-sitekey="<?php echo $config['recaptcha_sitekey']; ?>" data-callback="onLogin"><br><br>
-					Please view our <a href="privacy">Privacy Policy</a> and <a href="tos">our Terms & Conditions</a>. 
+					Please view our <a href="/you/privacy">Privacy Policy</a> and <a href="/youtos">our Terms & Conditions</a>. 
 				</fieldset>
             </form>
 		</div>
