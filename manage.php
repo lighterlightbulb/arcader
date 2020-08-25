@@ -9,12 +9,6 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 		<title><?php echo $config['project_name']; ?> - index</title>
 		<link rel="stylesheet" href="/static/css/main.css">
         <script src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.js"></script>
-        <script>
-            CodeMirror.fromTextArea(document.getElementById('css'), {
-                lineNumbers: true,
-                mode: "css"
-            });
-        </script>
 	</head>
 	<body>
 		<div class="container">
@@ -172,6 +166,12 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 					<input name="cssset" type="submit" value="Set">
 				</fieldset>
 			</form><br>
+            <script>
+                CodeMirror.fromTextArea(document.getElementById('css'), {
+                    lineNumbers: true,
+                    mode: "css"
+                });
+            </script>
 			
 			
 			<form method="post">
