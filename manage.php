@@ -8,6 +8,13 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 	<head>
 		<title><?php echo $config['project_name']; ?> - index</title>
 		<link rel="stylesheet" href="/static/css/main.css">
+        <script src="https://cdn.jsdelivr.net/npm/codemirror@5.57.0/lib/codemirror.min.js"></script>
+        <script>
+            CodeMirror.fromTextArea(document.getElementById('css'), {
+                lineNumbers: true,
+                mode: "css"
+            });
+        </script>
 	</head>
 	<body>
 		<div class="container">
@@ -161,7 +168,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 			<form method="post" enctype="multipart/form-data">
 				<fieldset>
 					<b>CSS</b><br>
-					<textarea required rows="15" cols="58" placeholder="Your CSS" name="css" id="css_code"><?php echo $user['css']?></textarea><br>
+					<textarea required rows="15" cols="58" placeholder="Your CSS" id="css" name="css" id="css_code"><?php echo $user['css']?></textarea><br>
 					<input name="cssset" type="submit" value="Set">
 				</fieldset>
 			</form><br>
