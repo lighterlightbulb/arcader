@@ -17,7 +17,6 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
             }
 
             .CodeMirror {
-                height: auto;
                 border: 1px solid #ddd;
             }
         </style>
