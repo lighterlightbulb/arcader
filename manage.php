@@ -187,7 +187,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
             <script>
                 let list = document.getElementById("cssmode");
                 var langs = ["text/css", "text/x-less", "text/x-scss"]
-                var editor = CodeMirror.fromTextArea(document.getElementById('css'), {
+                var editor = CodeMirror.fromTextArea(document.getElementById('css_code'), {
                     lineNumbers: true
                 });
 
