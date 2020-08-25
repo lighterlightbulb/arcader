@@ -9,7 +9,9 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 		<title><?php echo $config['project_name']; ?> - index</title>
 		<link rel="stylesheet" href="/static/css/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+        <script src="https://codemirror.net/mode/css/css.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
+
         <style>
             #cssform {
                 position: relative;
@@ -192,7 +194,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
                 function refreshmode() {
                     editor.setOption("mode", langs[list.selectedIndex]);
                 }
-                
+
                 list.selectedIndex = <?php echo $user['cssmode']?>;
                 refreshmode();
             </script>
