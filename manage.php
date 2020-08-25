@@ -189,9 +189,10 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
                     lineNumbers: true
                 });
 
-                function refreshmode() 
+                function refreshmode() {
                     editor.setOption("mode", langs[list.selectedIndex]);
-
+                }
+                
                 list.selectedIndex = <?php echo $user['cssmode']?>;
                 refreshmode();
             </script>
