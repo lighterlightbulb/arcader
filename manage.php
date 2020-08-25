@@ -175,7 +175,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 			<form method="post" enctype="multipart/form-data" id="cssform">
 				<fieldset>
 					<b>CSS</b><br>
-					<textarea required rows="15" cols="58" placeholder="Your CSS" id="css" name="css" id="css_code"><?php echo $user['css']?></textarea><br>
+					<textarea name="css" id="css_code"><?php echo $user['css']?></textarea><br>
                     <select id="cssmode" name="cssmode" onchange="refreshmode()">
                         <option value=0>CSS</option>
                         <option value=1>LESS</option>
