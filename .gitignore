@@ -2,6 +2,3 @@ cfg/*
   
 composer.phar
 /vendor/
-
-.git-ftp-ignore
-.git-ftp-include
