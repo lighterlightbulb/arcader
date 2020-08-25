@@ -54,6 +54,17 @@ $captchaRS = generateRandomString();
 				}
 			?><br>
 			
+            <?php
+            switch ($user["cssmode"]) {
+                case 1:
+                    echo '<script src="//cdn.jsdelivr.net/npm/less" ></script>
+                          <style type="text/less">' . $user['css'] . '</style>';
+                    break;
+                default:
+                    echo '<style>' . $user['css'] . '</style>';
+                    break;
+            }
+            ?>
 			<style><?php echo $user['css']; ?></style>
 			
 			<div class="leftHalf">
