@@ -65,7 +65,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 				} else if(@$_POST['cssset']) {
                     $css = $_POST['css'];
                     if ($_POST['cssmode'] == 2) {
-                        $scss = new Compiler();
+                        $scss = new ScssPhp\ScssPhp\Compiler();
                         $css = $scss->compile(css);
                     }
 
