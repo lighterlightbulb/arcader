@@ -24,7 +24,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/conn.php");
 			<?php
 				require($_SERVER['DOCUMENT_ROOT'] . "/lib/misc/header.php");
 			?><br>
-			Welcome to <b>Arcader.</b><br><br>You can reply to people's uploaded files, or customize your profile with custom CSS. We hope you have a good time here. <small>Our Discord is at the Contact Us button at the footer.</small>
+			Welcome to <b><?php echo $config['project_name']; ?>.</b><br><br>You can reply to people's uploaded files, or customize your profile with custom CSS. We hope you have a good time here. <small>Our Discord is at the Contact Us button at the footer.</small>
 			<br><br>
 			<a href="/new/video">Upload Video</a><br>
 			<a href="/new/image">Upload Image</a><br>
