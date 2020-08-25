@@ -174,7 +174,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 				<fieldset>
 					<b>CSS</b><br>
 					<textarea required rows="15" cols="58" placeholder="Your CSS" id="css" name="css" id="css_code"><?php echo $user['css']?></textarea><br>
-                    <select id="langlist" selectedIndex=<?php echo $user['cssmode']?> name="lang" onchange="refreshmode(this)">
+                    <select id="langlist" name="lang" onchange="refreshmode()">
                         <option value=0>CSS</option>
                         <option value=1>LESS</option>
                         <option value=2>SCSS</option>
@@ -183,12 +183,13 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 				</fieldset>
 			</form><br>
             <script>
+                let list = document.getElementById("langlist");
                 var editor = CodeMirror.fromTextArea(document.getElementById('css'), {
                     lineNumbers: true
                 });
 
-                function refreshmode(elem) {
-                    switch(elem.options[elem.selectedIndex]) {
+                function refreshmode() {
+                    switch(list.selectedIndex) {
                         case 0:
                             editor.setOption("mode", "text/css");
                             break;
@@ -200,6 +201,9 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
                             break;
                     }
                 }
+
+                list.selectedIndex = <?php echo $user['cssmode']?>;
+                refreshmode();
             </script>
 			
 			
