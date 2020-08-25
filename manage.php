@@ -184,23 +184,13 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 			</form><br>
             <script>
                 let list = document.getElementById("langlist");
+                var langs = ["text/css", "text/x-less", "text/x-scss"]
                 var editor = CodeMirror.fromTextArea(document.getElementById('css'), {
                     lineNumbers: true
                 });
 
-                function refreshmode() {
-                    switch(list.selectedIndex) {
-                        case 0:
-                            editor.setOption("mode", "text/css");
-                            break;
-                        case 1:
-                            editor.setOption("mode", "text/x-less");
-                            break;
-                        case 2:
-                            editor.setOption("mode", "text/x-scss");
-                            break;
-                    }
-                }
+                function refreshmode() 
+                    editor.setOption("mode", langs[list.selectedIndex]);
 
                 list.selectedIndex = <?php echo $user['cssmode']?>;
                 refreshmode();
