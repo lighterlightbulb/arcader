@@ -146,7 +146,7 @@ function getName($id, $connection) {
 
 
 function validateCSS($validate) {
-	$DISALLOWED = array("<?php", "?>", "behavior: url", ".php", "@import", "@\import", "@/import"); 
+	$DISALLOWED = array("<?php", "?>", ".php"); 
 
 	$validated = str_replace($DISALLOWED, "", $validate);
     return $validated;

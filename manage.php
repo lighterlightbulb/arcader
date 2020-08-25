@@ -63,9 +63,15 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 					$stmt->close();
 					header("Location: manage.php");
 				} else if(@$_POST['cssset']) {
+                    $css = $_POST['css'];
+                    if ($_POST['cssmode'] == 2) {
+                        $scss = new Compiler();
+                        $css = $scss->compile(css);
+                    }
+
 					$stmt = $conn->prepare("UPDATE users SET css = ?, cssmode = ? WHERE `users`.`username` = ?;");
 					$stmt->bind_param("ss", $validatedcss, $_POST['cssmode'], $_SESSION['user']);
-					$validatedcss = validateCSS($_POST['css']);
+					$validatedcss = validateCSS(css);
 					$stmt->execute(); 
 					$stmt->close();
 					header("Location: manage.php");

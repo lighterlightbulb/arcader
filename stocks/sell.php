@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . "/config.inc.php"); 
+require($_SERVER['DOCUMENT_ROOT'] . "/cfg/config.inc.php"); 
 require($_SERVER['DOCUMENT_ROOT'] . "/lib/conn.php");
 require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 require($_SERVER['DOCUMENT_ROOT'] . "/lib/stocks.php");
