@@ -63,8 +63,8 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 					$stmt->close();
 					header("Location: manage.php");
 				} else if(@$_POST['cssset']) {
-					$stmt = $conn->prepare("UPDATE users SET css = ? WHERE `users`.`username` = ?;");
-					$stmt->bind_param("ss", $validatedcss, $_SESSION['user']);
+					$stmt = $conn->prepare("UPDATE users SET css = ?, cssmode = ? WHERE `users`.`username` = ?;");
+					$stmt->bind_param("ss", $validatedcss, $_POST['cssmode'], $_SESSION['user']);
 					$validatedcss = validateCSS($_POST['css']);
 					$stmt->execute(); 
 					$stmt->close();
@@ -176,7 +176,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 				<fieldset>
 					<b>CSS</b><br>
 					<textarea required rows="15" cols="58" placeholder="Your CSS" id="css" name="css" id="css_code"><?php echo $user['css']?></textarea><br>
-                    <select id="langlist" name="lang" onchange="refreshmode()">
+                    <select id="cssmode" name="cssmode" onchange="refreshmode()">
                         <option value=0>CSS</option>
                         <option value=1>LESS</option>
                         <option value=2>SCSS</option>
@@ -185,7 +185,7 @@ require($_SERVER['DOCUMENT_ROOT'] . "/lib/user.php");
 				</fieldset>
 			</form><br>
             <script>
-                let list = document.getElementById("langlist");
+                let list = document.getElementById("cssmode");
                 var langs = ["text/css", "text/x-less", "text/x-scss"]
                 var editor = CodeMirror.fromTextArea(document.getElementById('css'), {
                     lineNumbers: true
