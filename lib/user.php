@@ -7,17 +7,7 @@ function getUserFromId($id, $connection) {
 	$result = $stmt->get_result();
 	if($result->num_rows === 0) die('That user does not exist.');
 	while($row = $result->fetch_assoc()) {
-		$userResult['username'] = $row['username'];
-		$userResult['id'] = $row['id'];
-		$userResult['date'] = $row['date'];
-		$userResult['bio'] = $row['bio'];
-		$userResult['css'] = $row['css'];
-		$userResult['pfp'] = $row['pfp'];
-		$userResult['music'] = $row['music'];
-	
-		$userResult['location'] = $row['location'];
-		$userResult['age'] = $row['age'];
-		$userResult['gender'] = $row['gender'];
+		$userResult = $row;
 	}
 	$stmt->close();
 
@@ -32,17 +22,7 @@ function getUserFromUsername($username, $connection) {
 	$result = $stmt->get_result();
 	if($result->num_rows === 0) die('That user does not exist.');
 	while($row = $result->fetch_assoc()) {
-		$userResult['username'] = $row['username'];
-		$userResult['id'] = $row['id'];
-		$userResult['date'] = $row['date'];
-		$userResult['bio'] = $row['bio'];
-		$userResult['css'] = $row['css'];
-		$userResult['pfp'] = $row['pfp'];
-		$userResult['music'] = $row['music'];
-		
-		$userResult['location'] = $row['location'];
-		$userResult['age'] = $row['age'];
-		$userResult['gender'] = $row['gender'];
+		$userResult = $row;
 	}
 	$stmt->close();
 
@@ -78,16 +58,7 @@ function getLatestItem($itemType, $type, $username, $connection) {
 	
 	if($result->num_rows === 0) return('Item doesnt exist.');
 	while($row = $result->fetch_assoc()) {
-		$itemResult['id'] = $row['id'];
-		$itemResult['type'] = $row['type'];
-		$itemResult['title'] = $row['title'];
-		$itemResult['extrainfo'] = $row['extrainfo'];
-		$itemResult['author'] = $row['author'];
-		$itemResult['filename'] = $row['filename'];
-		$itemResult['date'] = $row['date'];
-		$itemResult['status'] = $row['status'];
-		$itemResult['agerating'] = $row['agerating'];
-		$itemResult['thumbnail'] = $row['thumbnail'];
+		$itemResult = $row;
 	}
 	$stmt->close();
 
@@ -116,16 +87,7 @@ function getItem($id, $connection) {
 	
 	if($result->num_rows === 0) return('Item doesnt exist.');
 	while($row = $result->fetch_assoc()) {
-		$itemResult['id'] = $row['id'];
-		$itemResult['type'] = $row['type'];
-		$itemResult['title'] = $row['title'];
-		$itemResult['extrainfo'] = $row['extrainfo'];
-		$itemResult['author'] = $row['author'];
-		$itemResult['filename'] = $row['filename'];
-		$itemResult['date'] = $row['date'];
-		$itemResult['status'] = $row['status'];
-		$itemResult['agerating'] = $row['agerating'];
-		$itemResult['thumbnail'] = $row['thumbnail'];
+		$itemResult = $row;
 	}
 	$stmt->close();
 
