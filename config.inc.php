@@ -8,7 +8,12 @@
 	$config['project_name'] = 'Arcader';
 	$config['project_domain'] = 'spacemy.xyz';
 	$config['project_owner'] = 'tydentlor';
-	$config['project_discord'] = 'https://discord.gg/WjYeQNd';
+    $config['project_discord'] = 'https://discord.gg/WjYeQNd';
+    
+    $config['database_host'] = 'localhost';
+    $config['database_database'] = 'fourground';
+    $config['database_user'] = 'root';
+    $config['database_pass'] = '';
 	
 	if($config['project_debug'] = true) {
 		ini_set('display_errors', 1);
