@@ -1,30 +1,11 @@
--- phpMyAdmin SQL Dump
--- version 4.6.6deb5
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Aug 23, 2020 at 01:52 AM
--- Server version: 5.7.31-0ubuntu0.18.04.1
--- PHP Version: 7.2.24-0ubuntu0.18.04.6
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `arcader`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comments`
---
 
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
@@ -35,11 +16,11 @@ CREATE TABLE `comments` (
   `rating` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `files`
---
+CREATE TABLE `fan` (
+  `id` int(11) NOT NULL,
+  `following` varchar(255) NOT NULL,
+  `follower` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `files` (
   `id` int(11) NOT NULL,
@@ -73,6 +54,19 @@ CREATE TABLE `profilecomments` (
 --
 -- Table structure for table `users`
 --
+CREATE TABLE `stocknames` (
+  `id` int(11) NOT NULL,
+  `price` double NOT NULL DEFAULT '10',
+  `name` varchar(255) NOT NULL,
+  `coname` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `stocks` (
+  `id` int(11) NOT NULL,
+  `stockname` varchar(255) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `owner` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -87,59 +81,46 @@ CREATE TABLE `users` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `location` varchar(255) NOT NULL DEFAULT '?',
   `age` varchar(255) NOT NULL DEFAULT '?',
-  `gender` varchar(255) NOT NULL DEFAULT '?'
+  `gender` varchar(255) NOT NULL DEFAULT '?',
+  `bobux` double NOT NULL DEFAULT '100'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `comments`
---
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `files`
---
+ALTER TABLE `fan`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `files`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `profilecomments`
---
 ALTER TABLE `profilecomments`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `users`
---
+ALTER TABLE `stocknames`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+ALTER TABLE `stocks`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `comments`
---
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `files`
---
+ALTER TABLE `fan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `files`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `profilecomments`
---
 ALTER TABLE `profilecomments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `users`
---
+ALTER TABLE `stocknames`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `stocks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
