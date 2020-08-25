@@ -1,5 +1,5 @@
 <?php
-require("../config.inc.php");
+require($_SERVER['DOCUMENT_ROOT'] . "/cfg/config.inc.php"); 
 $conn = mysqli_connect(
     $config['database_host'], 
     $config['database_user'], 

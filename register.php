@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . "/config.inc.php");
+require($_SERVER['DOCUMENT_ROOT'] . "/cfg/config.inc.php");
 require($_SERVER['DOCUMENT_ROOT'] . "/lib/conn.php");
 require($_SERVER['DOCUMENT_ROOT'] . "/lib/register.php");
 ?>

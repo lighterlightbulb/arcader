@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php require($_SERVER['DOCUMENT_ROOT'] . "/config.inc.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . "/cfg/config.inc.php"); ?>
 <html>
 	<head>
 		<title><?php echo $config['project_name']; ?> - 404</title>

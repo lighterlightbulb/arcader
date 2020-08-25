@@ -11,9 +11,9 @@
     $config['project_discord'] = 'https://discord.gg/WjYeQNd';
     
     $config['database_host'] = 'localhost';
-    $config['database_database'] = 'fourground';
-    $config['database_user'] = 'root';
-    $config['database_pass'] = '';
+    $config['database_database'] = '1120044';
+    $config['database_user'] = '1120044';
+    $config['database_pass'] = 'Svetlana12';
 	
 	if($config['project_debug'] = true) {
 		ini_set('display_errors', 1);
